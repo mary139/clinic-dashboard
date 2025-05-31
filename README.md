@@ -28,6 +28,6 @@ A simple and modern clinic staff management dashboard built with the latest **Ne
 Clone the repository and install dependencies:
 
 ```bash
-git clone https://github.com/your-username/clinic-dashboard.git
+git clone https://github.com/mary139/clinic-dashboard.git
 cd clinic-dashboard
 npm install

@@ -1,0 +1,114 @@
+[
+  {
+    "id": "1",
+    "fullName": "Dr. Maryam Alishahi",
+    "position": "General Practitioner",
+    "status": "Active",
+    "hireDate": "2022-03-01"
+  },
+  {
+    "id": "2",
+    "fullName": "Michael Smith",
+    "position": "Nurse",
+    "status": "On Leave",
+    "hireDate": "2021-11-15"
+  },
+  {
+    "id": "3",
+    "fullName": "Dr. Sarah Johnson",
+    "position": "General Practitioner",
+    "status": "On Leave",
+    "hireDate": "2025-05-08"
+  },
+  {
+    "id": "4",
+    "fullName": "Dr. Amir Hosseini",
+    "position": "Cardiologist",
+    "status": "Active",
+    "hireDate": "2023-07-22"
+  },
+  {
+    "id": "5",
+    "fullName": "Lily Carter",
+    "position": "Nurse",
+    "status": "Inactive",
+    "hireDate": "2020-12-10"
+  },
+  {
+    "id": "6",
+    "fullName": "James Wilson",
+    "position": "Pharmacist",
+    "status": "Active",
+    "hireDate": "2024-01-05"
+  },
+  {
+    "id": "7",
+    "fullName": "Dr. Nadia Rahimi",
+    "position": "Pediatrician",
+    "status": "On Leave",
+    "hireDate": "2023-10-11"
+  },
+  {
+    "id": "8",
+    "fullName": "Robert Green",
+    "position": "Radiologist",
+    "status": "Active",
+    "hireDate": "2019-08-20"
+  },
+  {
+    "id": "9",
+    "fullName": "Emily Davis",
+    "position": "Nurse",
+    "status": "Active",
+    "hireDate": "2021-06-17"
+  },
+  {
+    "id": "10",
+    "fullName": "Dr. Farhad Kamali",
+    "position": "Surgeon",
+    "status": "Inactive",
+    "hireDate": "2022-11-02"
+  },
+  {
+    "id": "11",
+    "fullName": "Sophia Martinez",
+    "position": "Receptionist",
+    "status": "Active",
+    "hireDate": "2024-03-15"
+  },
+  {
+    "id": "12",
+    "fullName": "David Brown",
+    "position": "Nurse",
+    "status": "Active",
+    "hireDate": "2023-04-09"
+  },
+  {
+    "id": "13",
+    "fullName": "Dr. Yasmin Farsi",
+    "position": "Dermatologist",
+    "status": "On Leave",
+    "hireDate": "2021-09-27"
+  },
+  {
+    "id": "14",
+    "fullName": "Anna White",
+    "position": "Laboratory Technician",
+    "status": "Active",
+    "hireDate": "2020-05-30"
+  },
+  {
+    "id": "15",
+    "fullName": "Mark Thompson",
+    "position": "Pharmacist",
+    "status": "Inactive",
+    "hireDate": "2018-12-01"
+  },
+  {
+    "fullName": "Mary Alish",
+    "position": "Nurse",
+    "status": "Active",
+    "hireDate": "2025-05-01",
+    "id": "d502a53c-f608-4503-9a56-414645241c5c"
+  }
+]

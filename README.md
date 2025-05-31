@@ -17,6 +17,18 @@ A simple staff management dashboard built with **Next.js 15**, **React 19**, **T
 - Styling and layout powered by **Tailwind CSS** for a modern and responsive UI.
 
 ---
+## 🛠️ Tech Stack
+
+- [Next.js 15 (App Router)](https://nextjs.org/)
+- [React 19](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS 4](https://tailwindcss.com/)
+- [React Hook Form](https://react-hook-form.com/)
+- [Zod](https://zod.dev/) – Schema validation
+- [Sonner](https://sonner.emilkowal.ski/) – Toast notifications
+- [Iconsax React](https://iconsax.io/) – Icon set
+
+---
 
 ## Getting Started
 

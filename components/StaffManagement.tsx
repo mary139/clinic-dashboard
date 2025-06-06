@@ -31,7 +31,7 @@ const columns: TableColumn<Staff>[] = [
     render: (row: Staff) => {
       const status = row.status.toLowerCase()
       let colorClass = ''
-      let text = row.status
+      const text = row.status
 
       if (status === 'active') {
         colorClass = 'bg-green-100 text-green-800'
@@ -67,7 +67,7 @@ const columns: TableColumn<Staff>[] = [
   },
 ]
 
-export default function StaffMangment() {
+export default function StaffManagement() {
   const [page, setPage] = useState(1)
   const [search, setSearch] = useState('')
   const debouncedSearch = useDebouncedValue(search, 500)

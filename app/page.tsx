@@ -1,6 +1,4 @@
-'use client';
-
-import StaffMangment from '@/components/StaffMangment';
+import StaffManagement from '@/components/StaffManagement';
 import Link from 'next/link';
 import { Add } from 'iconsax-reactjs';
 
@@ -17,7 +15,7 @@ export default function StaffPage() {
           <Add size={18} />
         </Link>
       </div>
-      <StaffMangment />
+      <StaffManagement />
     </div>
   );
 }

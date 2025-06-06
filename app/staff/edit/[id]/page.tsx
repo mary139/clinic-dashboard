@@ -1,56 +1,21 @@
-'use client'
-
-import { useEffect, useRef, useState } from 'react'
-import { useRouter, useParams } from 'next/navigation'
 import StaffForm from '@/components/StaffForm'
-import { toast } from 'sonner'
 
-export default function EditStaffPage() {
-    const { id } = useParams()
-    const router = useRouter()
-    const [initialData, setInitialData] = useState(null)
-    const hasErrorShownRef = useRef(false)
 
-    useEffect(() => {
-        const fetchStaff = async () => {
-            try {
-                const res = await fetch(`/api/staff/${id}`)
-                if (!res.ok) throw new Error('Failed to fetch')
-                const data = await res.json()
-                setInitialData(data)
-            } catch (error) {
-                if (!hasErrorShownRef.current) {
-                    toast.error('Failed to load staff data. Try agian!')
-                    hasErrorShownRef.current = true
-                    router.push('/')
-                }
-            }
-        }
+const getStaff = async (id: string) => {
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'
+    const res = await fetch(`${baseUrl}/api/staff/${id}`)
+    if (!res.ok) throw new Error('Failed to fetch staff')
+    return res.json()
+}
 
-        if (id) fetchStaff()
-    }, [id, router])
-
-    const handleSubmit = async (staff: any) => {
-        const res = await fetch(`/api/staff/${id}`, {
-            method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(staff),
-        })
-
-        if (res.ok) {
-            toast.success('Staff updated successfully!')
-            router.push('/')
-        } else {
-            toast.error('Failed to update staff')
-        }
-    }
-
-    if (!initialData) return <p>Loading...</p>
+export default async function EditStaffPage({ params }: { params: { id: string } }) {
+    const id = (await params).id;
+    const staff = await getStaff(id);
 
     return (
         <div className="p-4 max-w-3xl mx-auto">
             <h1 className="text-2xl font-bold mb-4">Edit Staff</h1>
-            <StaffForm onSubmit={handleSubmit} initialData={initialData} />
+            <StaffForm initialData={staff} />
         </div>
     )
 }

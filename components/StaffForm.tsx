@@ -4,6 +4,8 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useEffect } from 'react';
+import { useRouter } from 'next/navigation'
+import { toast } from 'sonner'
 
 type Staff = {
     id: number;
@@ -14,9 +16,7 @@ type Staff = {
 };
 
 type StaffFormProps = {
-    onSubmit: (staff: Partial<Staff>) => void;
     initialData?: Partial<Staff>;
-    loading?: boolean;
 };
 
 const staffValidationSchema = z.object({
@@ -26,7 +26,8 @@ const staffValidationSchema = z.object({
     hireDate: z.string().min(1, 'Hire date is required'),
 });
 
-export default function StaffForm({ onSubmit, initialData = {}, loading = false }: StaffFormProps) {
+export default function StaffForm({ initialData = {} }: StaffFormProps) {
+    const router = useRouter()
     const {
         register,
         handleSubmit,
@@ -46,9 +47,22 @@ export default function StaffForm({ onSubmit, initialData = {}, loading = false 
         }
     }, [initialData, setValue]);
 
-    const submitHandler = (data: Partial<Staff>) => {
-        onSubmit(data);
-    };
+    const submitHandler = async (staff: Staff) => {
+        const method = !!initialData?.id ? 'PUT' : 'POST'
+        const endpoint = !!initialData?.id ? `/${initialData?.id}` : ''
+        const res = await fetch(`/api/staff${endpoint}`, {
+            method,
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(staff),
+        })
+
+        if (res.ok) {
+            toast.success(`Staff ${!!initialData?.id ? 'updated' : 'added'} successfully!`)
+            router.push('/')
+        } else {
+            toast.error(`Failed to  ${!!initialData?.id ? 'update' : 'add'} staff!`)
+        }
+    }
 
     return (
         <form onSubmit={handleSubmit(submitHandler)} className="bg-white dark:bg-gray-800 shadow-md rounded-lg p-6 space-y-4 max-w-2xl mx-auto">
@@ -100,10 +114,11 @@ export default function StaffForm({ onSubmit, initialData = {}, loading = false 
 
             <button
                 type="submit"
-                disabled={loading}
+                // disabled={loading}
                 className="text-sm text-gray-900 border border-gray-900 rounded-md bg-gray-50 dark:bg-gray-200 dark:border-gray-100 dark:text-gray-900 font-bold py-2 px-4 disabled:opacity-50"
             >
-                {loading ? 'Saving...' : 'Save'}
+                {/* {loading ? 'Saving...' : 'Save'} */}
+                Save
             </button>
         </form>
     );
